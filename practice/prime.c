@@ -1,22 +1,45 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main(void)
+int largest_prime_factor(int n)
 {
-        int i, j, count, flag;
+        int i, j, count = 0;
 
-        for (i = 200; i >= 2; i++)
-        count = 1;
-        for (j = 3; j <= i; j += 2)
-        {                                                               while (i % j == 0)
-		{
-			count++;
-			flag = i;
-		}
-        }
-	if (count == 2)
+	for (i = n - 1; i > 1; i--)
 	{
-		printf("%d\n", flag);
+		if (n % i == 0)
+		{
+			//only factors are left at this point (10, 5, 4, 2).
+
+			for (j = i + 1 / 2; j > 2; j--)
+			{
+				if (i % j == 0)
+				{
+					count += 1;
+					continue;
+					printf("%d\n", i);
+				}
+				else
+				{
+					count = 0;
+					continue;
+				}
+
+				if (count == 0)
+				{
+					printf("%d\n", i);
+					break;
+				}
+		//non prime factors will have counts greater than 0 after this.
+
+			}
+		}
 	}
         return (0);
+}
+
+int main(void)
+{
+	largest_prime_factor(20);
+	return (0);
 }

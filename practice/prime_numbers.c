@@ -2,32 +2,35 @@
 #include <stdlib.h>
  
 /**
- * main - print all the prime number less than 200
- * @i: input value
- * @j: input value
+ * main - print all the prime numbers less than 200
+ * @i: integers between 2 and 200
+ * @j: division factor
  * Return: always 0
  */
 
-  int main() 
+int main()
 {
     int i, j, flag;
 
-    printf("The prime numbers between 1 and 199 are:\n");
-    for (i = 2; i < 199; i++)
+    printf("The prime numbers between 1 and 200 are:\n");
+    for (i = 2; i < 200; i++)
     {
-      flag = 1;
-      for (j = 2; j <= i / 2 && flag == 1; j++)
-      {
-        if (i % j == 0) 
-	{
-          flag = 0;
-        }
-      }
-      if (flag == 1)
-      {
-        printf("%5d ", i);
-      }
+	    for (j = 2; j < (i + 1 / 2); j++)
+	    {
+		    if (i % j != 0)
+		    {
+			    flag = 1;
+		    }
+		    else
+		    {
+			    flag = 0;
+		    }
+	    }
+	    if (flag == 1)
+	    {
+		    printf("%d ", i);
+	    }
     }
     printf("\n");
     return 0;
-  }
+}
